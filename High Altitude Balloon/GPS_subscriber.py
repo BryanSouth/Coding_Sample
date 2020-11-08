@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 def GPS_callback(data):
  
+    # Plot the data is it comes in 
     plt.figure()
     plt.plot(data[:,0], label = 'GPS_x')
     plt.plot(data[:,1], label = 'GPS_z')
@@ -22,8 +23,10 @@ def GPS_callback(data):
     
 def listener():
 
+    # Initialize the subscriber node 
     rospy.init_node('listener', anonymous=True)
-
+    
+    # Set the topic to subscribe to 
     rospy.Subscriber("GPS_topic", Float64MultiArray, GPS_callback)
 
     rospy.spin()

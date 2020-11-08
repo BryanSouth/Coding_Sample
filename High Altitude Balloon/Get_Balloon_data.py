@@ -13,6 +13,13 @@ drift = []
 accel_x = []
 accel_z = []
 
+'''
+This script is a demonstration simulation for the High Altitude Balloon project at Western University. It was meant to enable us 
+to test our ROS setup before actual balloon deployment. It simulates the acceleration and position of a high altitude balloon 
+given expected real world parameters and balloon and payload characteristics. This script creates the data used in the ROS 
+accelerometer and GPS publisher and subscriber nodes. Guassian noise is applied to the sensor data based on sensor specs. 
+
+'''
 
 def Balloon_sim(v_x, v_z, a_x, a_z, x, z):
     

@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 def Accel_callback(data):
  
+    # plot the data as it comes in
     plt.figure()
     plt.plot(data[:,0], label = 'acceleration_x')
     plt.plot(data[:,1], label = 'acceleration_y')
@@ -22,9 +23,11 @@ def Accel_callback(data):
     
 def listener():
 
+    # initialize the subscriber node 
     rospy.init_node('listener', anonymous=True)
 
-    rospy.Subscriber("GPS_topic", Float64MultiArray, Accel_callback)
+    # Set the topic the node is subscribing to
+    rospy.Subscriber("Accel_topic", Float64MultiArray, Accel_callback)
 
     rospy.spin()
     
