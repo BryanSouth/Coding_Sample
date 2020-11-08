@@ -158,11 +158,12 @@ for b in range(len(terrain_types)):
         sinks.append(sink)
         sinks2.append(sink[0])
     
-    pntr += 1
+    pntr += 1 #class label
 
 slips = np.hstack((slips))
 torques = np.hstack((torques))
 sigmas = np.hstack((sigmas))
+label = np.hstack((label))
 
 ML_data = np.column_stack((slips, torques, sigmas, label))
 ML_data = ML_data[~np.isnan(ML_data).any(axis=1)]
