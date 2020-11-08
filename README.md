@@ -1,4 +1,4 @@
-# Project Code
+# Project Code Samples
 
 TS_Classifier is a sample Python script which I'd like to use to showcase some coding logic and use of the main() function in Python which allows the user to increase modularity. In this script, a dataset called 'data_ts' is read in and converted into a dataframe called df_data in the init() function. In the main() function, init() is called to read in df_data after setting up a pipeline for extracting statistical features from the data using tsfresh and inputting these features into a Random Forest classifier. The Random Forest is trained and tested on separate sets of samples of these statistical features. The classification report, which contains metrics on the performance of the classifier, is printed. TsFresh has limited abilities to run when imported into other scripts, so to eliminate error, the main() function is not run when the module is imported. It is only run when the file itself is being executed. The init() function can still be called when the module is imported which saves having to code that functionality multiple times. 
 
