@@ -13,12 +13,17 @@ from tsfresh.transformers import RelevantFeatureAugmenter
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 
+'''
+This script uses tsfresh. Tsfresh automatically generates features based on time series data. It was used to compare against 
+the "manually" engineered features from the sensor data. 
+
+'''
 
 def init():
     #Importing the dataset and setting it up as a dataframe for tsfresh to use
     
     data = np.load('data_ts.npy')
-    df_data = pd.DataFrame(data, columns = ['id','time', 'a', 'b', 'c', 'd'])
+    df_data = pd.DataFrame(data, columns = ['id','time', 'slip', 'torque', 'pressure', 'class'])
     
     return df_data
 
@@ -31,8 +36,8 @@ def main():
     df_data = init()
     
     #Separating x and y and classification training and testing set
-    df_x_data = df_data.loc[:, df_data.columns != 'd']
-    y = df_data.loc[:, df_data.columns == 'd']
+    df_x_data = df_data.loc[:, df_data.columns != 'class']
+    y = df_data.loc[:, df_data.columns == 'class']
     X = pd.DataFrame(index=y.index)
     
     X_train, X_test, y_train, y_test = train_test_split(X, y)

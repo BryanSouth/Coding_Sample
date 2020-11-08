@@ -10,19 +10,20 @@ from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import RandomizedSearchCV
-#from sklearn import metrics
 from sklearn.model_selection import train_test_split
 import seaborn as sn
 import sklearn.metrics as metrics
 from sklearn.metrics import f1_score, precision_score, recall_score, classification_report
 
 
-
-
-# In[] 
 def init():
     
-    data = np.load('train.npy')
+    '''
+    function description: Takes data file from Terrain_Classifier_Data_Prep.py, converts it to a dataframe, and separates 
+    it into training and testing data.
+    
+    '''
+    data = np.load('ML_data.npy')
 
     df_data = pd.DataFrame(data, columns = ['slip', 'motor torque', 'contact pressure', 'class' ])
     df_x = df_data.loc[:, df_data.columns != 'class']
@@ -34,9 +35,12 @@ def init():
     y_train = np.ravel(y_train)
     return x_train, y_train, x_test, y_test
 
-# In[]    
-
 def cross_val():
+    
+    '''
+    function description: Performs cross-validation and optimizes random forest hyperparameters. 
+    
+    '''    
     
     n_estimators = [int(x) for x in np.linspace(start = 10, stop = 1000, num = 10)] 
     max_features = [1, 2, 3] 
@@ -64,6 +68,12 @@ def cross_val():
     
 def main():
     
+    '''
+    function description: takes tuned hyperparameters from cross_val(), trains the model using these hyperparameters, tests
+    the model on the test set, outputs the resulting classification confusion matrix and plots the feature importances
+    
+    '''    
+    
     x_train, y_train, x_test, y_test = init()
     hypers = cross_val()
     clas = RandomForestClassifier(n_estimators=hypers['n_estimators'], max_depth = hypers['max_depth'], min_samples_split = hypers['min_samples_split'], 
@@ -71,9 +81,6 @@ def main():
                                   criterion = hypers['criterion'])
     clas.fit(x_train, y_train)
     
-
-    
-    # In[]
     Y_pred = clas.predict(x_test)
     print("Accuracy:",metrics.accuracy_score(y_test, Y_pred))
     
