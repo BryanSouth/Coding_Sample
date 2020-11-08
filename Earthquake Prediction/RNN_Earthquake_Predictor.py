@@ -41,7 +41,6 @@ else:
     print("GPU device not found. Using CPU")
 
 # In[36]:
-# Variables that determines how the script behaves
 
 # Data was convereted from CSV to HDF then truncated
 hdf_key = 'my_key'
@@ -81,7 +80,7 @@ train_df.max()
 train_df.min()
 # In[11]:
 # Importing the training set
-"""Temporary: we downsample the training datatset to reduce time!"""
+#Temporary: we downsample the training datatset to reduce time
 down_sample=10000
 
 dataset_train = train_df.iloc[::down_sample,:]
@@ -187,7 +186,7 @@ plot_model(regressor, to_file=model_plot_filename, show_shapes=True, show_layer_
 print('RNN plot saved to {}'.format(model_plot_filename))
 # In[20]:
 # Import validation set
-"""Temporary: we downsample the testing datatset to reduce time!"""
+#Temporary: we downsample the testing datatset to reduce time
 
 
 dataset_test = valid_df.iloc[::down_sample,:]
