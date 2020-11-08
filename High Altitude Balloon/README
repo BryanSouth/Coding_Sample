@@ -1,0 +1,7 @@
+This project was for the High Altitude Balloon project at Western University. It focuses on the use of Robotic Operating System (ROS) to handle sensor data and enable near-real time tracking of the balloon and our payload. 
+
+Accelerometer_publisher.py and GPS_Publisher.py are the two publisher nodes, which take the the accelerometer and GPS data in near-real time, and publish them to whatever nodes may be subscribed to this information. The subscriber nodes can process the data in any manner of ways. 
+
+In this case, Accelerometer_subscriber.py and GPS_subscriber.py (the two subscriber nodes) take the information from the relevant publisher node and plot it in near-real time. In that way, our team can be down on the ground and see the drift, altitude, and acceleration of the balloon change in near-real time. The motivation for this was the result of the previous high altitue balloon project literally becoming lost in the sky. Interestingly, it was found a little over a year later in marshy area, but the team had no desire to repeat the same occurence. We wanted to be able to track the balloon and display the information as it happened. 
+
+Get_Balloon_data.py was the script used for simulating the balloon drift, altitude change, and acceleration changes based on various real world characteristics of the balloon, our payload, and conditions we could expect. The script was used to test the ROS implementation. 
