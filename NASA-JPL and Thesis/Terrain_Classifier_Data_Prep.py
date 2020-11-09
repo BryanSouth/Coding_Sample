@@ -7,7 +7,6 @@
 Created on Thu Jun  6 11:47:18 2019
 
 @author: marchett
-
 My colleage at JPL laid out the framework for this code, and I modified it heavily for my use case. 
 Her name is kept as the author name for posterity's sake. The inclusion of this code is meant to show the handling and processing
 of large quantities of data from multiple sensors, and to give some background insight into the problem at hand for other scripts
