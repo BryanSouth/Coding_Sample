@@ -1,2 +1,3 @@
-This project was for a machine learning course. I chose the earthquake prediction challenge. The dataset was a time series of acoustic data (seismometer readings) and the actual time left until the next earthquake. I chose to use an LSTM RNN architecture given the time dependent nature of the problem.The LSTM can take into account information from previous time steps to perform the regression. 
-This code I'd say is in an "intermediate" development state. I have left it in this state to show I code to allow myself to more easily debug errors.
+This project was for a machine learning course. I chose the earthquake prediction challenge. The dataset was a time series of acoustic data (seismometer readings) and the actual time left until the next earthquake. I chose to use an LSTM RNN architecture given the time dependent nature of the problem. The LSTM can take into account information from previous time steps to perform the regression. 
+This code I'd say is in an "intermediate" development state. I have left it in this state to show I code to allow myself to debug errors more easily.
+
